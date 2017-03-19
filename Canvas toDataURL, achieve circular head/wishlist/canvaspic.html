@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<title>微信</title>
+		<link rel="stylesheet" href="../Public/Css/base.css">
+		<link rel="stylesheet" href="../Public/Css/wishlist/index.css">
+		<script src="../Public/js/jquery-1.10.2.min.js"></script>
+	</head>
+	<body
+		style="background:#fbf9ed url(../Public/Images/wishlist/giftfooterbg.png) no-repeat;
+		background-size: 100% 127px;
+		background-position: center bottom;">
+		<div class="mybox">
+			<img src="../Public/Images/wishlist/cvtopimg.png" />
+			<img src="../Public/Images/wishlist/cvbg.png" id="cvbg" class="cvbg" style="display: none;"/>
+			<div class="btndiv">
+				<a href="#" class="cvbtn" id="cvbtn"></a>
+			</div>
+			<img src="../Public/Images/wishlist/yuan3.jpg" id="headpic" style="display: none;"/>
+			<canvas id="thecanvas">您的手机浏览器不支持canvas，请更换浏览器</canvas>
+			<img src="../Public/Images/wishlist/erweima.png" id="erweima"  style="display: none;"/>
+			<img src="../Public/Images/wishlist/saoma.png" id="saoma" style="display: none;"/>
+			<img src="../Public/Images/wishlist/youxiaoqi.png" id="date" style="display: none;"/>
+			<img id="test" class="test" src=""/>
+		</div>
+		
+		<script>
+	    	window.onload = function() {
+	    		draw();
+			    saveImageInfo();
+		    };
+            function draw(){
+                var canvas = document.getElementById("thecanvas");
+                var ctx = canvas.getContext("2d");
+				var windowHeight = $(window).height();
+				canvas.width = $(window).width()*2-80;
+           	  	canvas.height =$(window).height()*2;
+				/*ctx的坐标*/
+				var windowW = $(window).width()*2-80;
+				var windowH = $(window).height()*2;
+				//画背景图片
+				var cvbg=document.getElementById("cvbg");
+				var cvbgW =  windowW*1;
+				var cvbgH=  cvbgW*1.733;
+				var cvbgX =  0 ;
+				var cvbgY= 0;
+				ctx.drawImage(cvbg,cvbgX,cvbgY, canvas.width , canvas.height);
+				//画头像
+				var headpic = document.getElementById("headpic");
+				//将传入的头像图片的src传入yuan_image函数，返回圆形图片src
+				var headsrc = headpic.src;
+				var src = yuan_image(headsrc);
+				headpic.src = src;
+				function yuan_image(img) {
+					if (typeof img !== 'object') {
+						var tem = new Image();
+						tem.src = img;
+						img = tem;
+					}
+					var w, h, _canv, _contex, cli;
+					if (img.width > img.height) {
+						w = img.height;
+						h = img.height;
+					} else {
+						w = img.width;
+						h = img.width;
+					}
+					_canv = document.createElement('canvas');
+					//将图片画到canvas上时，为了图片不失真，canvas.width、canvas.height 分别等于图片的宽高
+					_canv.width = w;
+					_canv.height = h;
+					//canvas内联样式宽高设置为自身两倍，否则canvas生成图片会模糊
+					_canv.style.width = w*2;
+					_canv.style.height = h*2;
+					_contex = _canv.getContext("2d");
+					cli = {
+						x: w / 2,
+						y: h / 2,
+						r: w / 2
+					};
+					_contex.clearRect(0, 0, w, h);
+					//保存当前路径
+					_contex.save();
+					_contex.beginPath();
+					//相当于画一个圆形路径
+					_contex.arc(cli.x, cli.y, cli.r, 0, Math.PI * 2, false);
+					//选中当前路径，使之成为选区
+					_contex.clip();
+					//在当前选区画图，只有选区内图形可见
+					_contex.drawImage(img, 0, 0);
+				    //回到当前路径
+					_contex.restore();
+					return _canv.toDataURL();
+				}
+				var headpicW =  windowW*0.178;
+				var headpicH=  headpicW*1;
+				var headpicX = windowW*0.406 ;
+				var headpicY= windowH*0.078;
+//				ctx.drawImage(headpic,headpicX,headpicY,headpicW, headpicH);
+//				headpic.onload = function () //确保图片已经加载完毕  
+//				{  
+				    ctx.drawImage(headpic,headpicX,headpicY,headpicW, headpicH); 
+//				}  
+					
+				//画文字
+				function roundedRect(cornerX, cornerY, width, height, cornerRadius) {
+				   if (width> 0) {
+				   	ctx.moveTo(cornerX + cornerRadius, cornerY);
+				   }else  {
+				   	   ctx.moveTo(cornerX - cornerRadius, cornerY);
+					   ctx.arcTo(cornerX+width,cornerY,cornerX + width,cornerY+height,cornerRadius);
+					   ctx.arcTo(cornerX+width,cornerY + height,cornerX,cornerY+height,cornerRadius);
+					   ctx.arcTo(cornerX,cornerY+height,cornerX,cornerY,cornerRadius);
+				   }
+				   if(width> 0) {
+				      ctx.arcTo(cornerX,cornerY,cornerX+cornerRadius,cornerY,cornerRadius);
+				   }
+				   else{
+				     ctx.arcTo(cornerX,cornerY,cornerX-cornerRadius,cornerY,cornerRadius);
+				   }
+				}
+				//画圆角矩形，其中cornerX,cornerY是矩形左上角坐标。
+				// drawRoundedRect(strokeStyle,fillStyle,cornerX,cornerY,width,height,cornerRadius)
+				
+				function drawRoundedRect(strokeStyle,fillStyle,cornerX,cornerY,width,height,cornerRadius) {
+				   ctx.beginPath();
+				   roundedRect(cornerX, cornerY, width, height, cornerRadius);
+				   ctx.strokeStyle = strokeStyle;
+				   ctx.fillStyle = fillStyle;
+				   ctx.stroke();
+				   ctx.fill();
+				}
+				
+				ctx.translate(windowW/2,windowW*0.374);
+				var ww = $(window).width();
+				if(ww>=360){
+					ctx.font = "20pt Agency FB";
+				}else{
+					ctx.font = "17pt Agency FB";
+				}
+				ctx.strokeStyle = "#fff";
+				ctx.textAlign="center";
+				ctx.textBaseline="middle";
+				ctx.fillStyle = "#fff";
+				
+				drawRoundedRect('#fff', '#ffc82a',  121,  -24, -242,  48, 24);
+				ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑小黑不黑1", 0, 0);
+	            
+
+				drawRoundedRect('#fff', '#ffc82a',  121,  42, -242,  48, 24);
+				ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑2", 0, 68);
+	            
+	            drawRoundedRect('#fff', '#ffc82a',  121,  114, -242,  48, 24);
+	            ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑3", 0, 140);
+
+	            drawRoundedRect('#fff', '#ffc82a',  121,  182, -242,  48, 24);
+	            ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑4", 0, 208);
+
+	            drawRoundedRect('#fff', '#ffc82a',  121,  250, -242,  48, 24);
+	            ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑5", 0, 276);
+
+	            drawRoundedRect('#fff', '#ffc82a',  121,  318, -242,  48, 24);
+	            ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑6", 0, 344);
+
+	            drawRoundedRect('#fff', '#ffc82a',  121,  386, -242,  48, 24);
+	            ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑7", 0, 412);
+
+	            drawRoundedRect('#fff', '#ffc82a',  121,  454, -242,  48, 24);
+	            ctx.fillStyle = "#fff";
+	            ctx.fillText("我是小黑不黑8", 0, 480);
+
+	            
+	            //画二维码
+	             ctx.translate(-windowW/2,0);
+	            var erweima=document.getElementById("erweima");
+				var erweimaW =  windowW*0.585/2;
+				var erweimaH=  erweimaW*1;
+				var erweimaX = windowW*0.146 ;
+				var wh = $(window).height();
+				if(wh>480){
+					var erweimaY= windowH*0.588;
+				}else{
+					var erweimaY= windowH*0.565;
+				}
+				
+				ctx.drawImage(erweima,erweimaX,erweimaY,erweimaW, erweimaH);
+				
+				 //画二维码右边文字
+	            ctx.translate(windowW/4,0);
+	            var saoma=document.getElementById("saoma");
+				var saomaW =  windowW*0.346;
+				var saomaH=  erweimaW*0.485;
+				var esaomaX = windowW*0.146*2;
+				var saomaY= windowH*0.610;
+				ctx.drawImage(saoma,esaomaX,saomaY,saomaW, saomaH);
+				
+				//画有效期
+	            ctx.translate(windowW/8,0);
+	            var date=document.getElementById("date");
+				var saomaW =  windowW*0.346;
+				var saomaH=  erweimaW*0.161;
+				var esaomaX = windowW*0.146;
+				var saomaY= windowH*0.710;
+				ctx.drawImage(date,esaomaX,saomaY,saomaW, saomaH);
+            }
+            
+           function bindButtonEvent(element, type, handler)
+            {
+            	   if(element.addEventListener) {
+            	      element.addEventListener(type, handler, false);
+            	   } else {
+            	      element.attachEvent('on'+type, handler);
+            	   }
+			}
+            
+            function saveImageInfo () 
+            {
+            	var mycanvas = document.getElementById("thecanvas");
+            	var image    = mycanvas.toDataURL("image/png");
+				document.getElementById('test').src = image;
+				mycanvas.style.display ='none'
+            }
+        </script>
+	</body>
+</html>

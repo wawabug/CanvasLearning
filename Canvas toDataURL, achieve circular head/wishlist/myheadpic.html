@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+	</head>
+	<body>
+		<img src="../Public/Images/wishlist/yuan3.jpg" id="head"/>
+		<img src="" id="circlepic"/>
+		<canvas id="canvas"></canvas>
+		<canvas id="maincanvas"></canvas>
+		
+		<script>
+		window.onload = function(){
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			var maincanvas = document.getElementById("maincanvas");
+			var mainctx = maincanvas.getContext("2d");
+			var head = document.getElementById("head");
+			var circlepic = document.getElementById("circlepic");
+			//将传入的头像图片的src传入yuan_image函数，返回圆形图片src
+			var headsrc = head.src;
+			var width = head.width;
+			var height = head.height;
+			var src = yuan_image(headsrc);
+			//将yuan_image函数生成的圆形图片src赋值给页面id为circlepic的img元素
+			circlepic.src=src;
+			
+			//将裁减后的圆形图片画到canvas上
+			canvas.width = width;
+			canvas.height = height;
+			//通过css来调节canvas图片大小
+			canvas.style.width = 100+"px";
+			canvas.style.height = 100+"px";
+			ctx.drawImage(circlepic,0,0,width,height);
+			mainctx.drawImage(canvas,50,30,100,100);
+			function yuan_image(img) {
+				if (typeof img !== 'object') {
+					var tem = new Image();
+					tem.src = img;
+					img = tem;
+				}
+				var w, h, _canv, _contex, cli;
+				if (img.width > img.height) {
+					w = img.height;
+					h = img.height;
+				} else {
+					w = img.width;
+					h = img.width;
+				}
+				_canv = document.createElement('canvas');
+				_canv.width = w;
+				_canv.height = h;
+				_canv.style.width = w*2;
+				_canv.style.height = h*2;
+				_contex = _canv.getContext("2d");
+				cli = {
+					x: w / 2,
+					y: h / 2,
+					r: w / 2
+				};
+				_contex.clearRect(0, 0, w, h);
+				_contex.save();
+				_contex.beginPath();
+				_contex.arc(cli.x, cli.y, cli.r, 0, Math.PI * 2, false);
+				_contex.clip();
+				_contex.drawImage(img, 0, 0);
+				_contex.restore();
+				return _canv.toDataURL();
+			}
+		}
+		</script>
+	</body>
+</html>

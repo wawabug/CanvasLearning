@@ -1,0 +1,512 @@
+/*canvaspic*/
+.test{
+	padding: 0px 20px 54px;
+	box-sizing: border-box;
+}
+.btndiv{
+	position: fixed;
+	bottom: 7px;
+	width: 100%;
+}
+.cvbtn{
+	display: block;
+	height: 44px;
+	width: 142px;
+	margin: 3px auto 0px;
+	background: url(../../Images/wishlist/cvbtn.png) no-repeat;
+	background-size: 142px 100%;
+	background-position: center center;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	
+}
+/*首页*/
+body{
+	background: #fbf9ed;
+}
+.container{
+}
+.toptext{
+	padding: 23px 15px 0px;
+	box-sizing: border-box;
+}
+.banner{
+	padding: 0px 20px 12px;
+	box-sizing: border-box;
+}
+.startbtn{
+	padding: 0px 28% 15px;
+	box-sizing: border-box;
+}
+.btns{
+	padding: 0px 15px 17px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.leftbtn{
+	width: 72px;
+	height: 26px;
+	float: left;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin-bottom: 17px;
+}
+.rightbtn{
+	width: 72px;
+	height: 26px;
+	float: right;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/*制作心愿单 makewish.html*/
+.box{
+	padding: 0px 15px 25px;
+}
+.wishlistbox{
+	background: url(../../Images/wishlist/makewishbg.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+	padding: 22% 17% 22% 17%;
+	position: relative;
+}
+.wishbock{
+	height: 120px;
+	background: #fff;
+	z-index: -4;
+}
+.boy1{
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	top: 17%;
+	left: 5%;
+}
+.girl{
+	position: absolute;
+	bottom: 6%;
+    right: 7%;
+	width: 55px;
+	height: 70px;
+}
+
+.wishlistbox{
+	margin-bottom: 10px;
+}
+.wishbock{
+	padding: 8px 18px;
+	overflow-y: scroll;
+}
+.wishlist{
+	height: 24px;
+	width: 100%;
+	line-height: 24px;
+	text-align: center;
+	font-size: 13px;
+	color: #fff;
+	border-radius: 12px;
+	margin: 10px auto;
+	background: #ffc82a
+}
+.wishlist span:nth-child(2){
+	display: block;
+	height: 24px;
+	line-height: 25px;
+}
+.close{
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	margin-left: 6px;
+    float: left;
+    position: relative;
+    top: 6px;
+	background: url(../../Images/wishlist/delete.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.add{
+	width: 88px;
+	height: 39px;
+	vertical-align: middle;
+}
+.write{
+	display: inline-block;
+	background: url(../../Images/wishlist/borderbg.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+	padding: 5px;
+	margin-left: 5px;
+	width: 61%;
+}
+input[type="text"]{
+	border: 1px solid transparent;
+	height: 38px;
+	width: 100%;
+	font-size: 13px;
+	color: #cccccc;
+	padding-left: 10px;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.writediv {
+    padding-bottom: 10px;
+}
+.sentences{
+	background: url(../../Images/wishlist/clickwishbg.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+	padding: 5px 33px 13px 35px;
+	margin-bottom: 6px;
+}
+.tip{
+	font-size: 12px;
+	color: #f5b3b4;
+	text-align: center;
+	padding: 6px 0px 15px;
+}
+.sentences span{
+	font-size: 13px;
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	border-radius: 12px;
+	background: #ffc82a;
+	color: #fff;
+	margin-bottom: 10px;
+	margin-right: 7px;
+	position: relative;
+	padding: 0px 5px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.sentences img{
+	position: absolute;
+	width: 22px;
+	height: 26px;
+	display: none;
+	top: -5px;
+}
+
+.createwishbtn{
+	display: block;
+	width: 141px;
+	height: 44px;
+	margin: 0 auto;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*我的元旦礼物*/
+.containe {
+   /* padding-bottom: 25px;*/
+}
+.imgdiv{
+	padding: 27px 46px 17px;
+}
+.topimg{
+	width: 100%;
+}
+.quans{
+	padding: 0px 19px;
+	padding-top: 60px;
+	text-align: center;
+}
+.quan{
+	background: url(../../Images/wishlist/quanbg.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+	margin-bottom: 15px;
+}
+.check{
+	width: 88px;
+	height: 39px;
+	padding: 20px 10px 25px;
+	float: right;
+}
+.check1{
+	width: 88px;
+	height: 39px;
+	padding: 20px 10px 25px;
+	float: right;
+}
+.quan span{
+	font-size: 17px;
+	color: #b56643;
+	line-height: 84px;
+	margin-left: 25px;
+	font-weight: bold;
+}
+.rightyun{
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	width: 15px;
+	height: 23px;
+}
+
+/*点击领取切换按钮状态*/
+.received{
+	height: 73px !important;
+	width: 73px !important;
+	padding: 3px 15px 3px !important;
+}
+
+/*没有券*/
+.topimgs{
+	padding: 0px 28px;
+	float: left;
+	width: 100%;
+    box-sizing: border-box;
+}
+.boyimg{
+	width: 55px;
+	height: 55px;
+	float: left;
+}
+.tiptext{
+	width: 175px;
+	height: 49px;
+	position: relative;
+    left: 25px;
+}
+.yunimg{
+	width: 47px;
+	height: 30px;
+	position: relative;
+    top: 10px;
+    float: right;
+}
+.centerimg {
+    text-align: center;
+    padding-right: 8px;
+}
+.gobtn{
+	width: 142px;
+	height: 50px;
+	position: relative;
+    top: 33px;
+    left: 25px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.shadowimg{
+	width: 33px;
+	height: 60px;
+	float: right;
+}
+.bottoming {
+    padding: 0px 29px 0px 12px;
+}
+.yun1{
+	text-align: center;
+}
+.girlimg{
+	width: 55px;
+	height: 70px;
+	float: right;
+}
+.stardiv{
+	padding-left: 32px;
+}
+.starimg{
+	width: 48px;
+	height: 50px;
+}
+.yun2{
+	width: 30px;
+	height: 37px;
+	margin-top: -15px;
+	float: left;
+}
+.chakan{
+	width: 141px;
+    height: 49px;
+    position: relative;
+    left: -15px;
+}
+
+/*地址页面样式*/
+.addresswrap{
+	padding-top: 7px;
+	position: relative;
+}
+.adressyun{
+	width: 16px;
+	height: 22px;
+}
+.adressboy{
+	position: absolute;
+	left: 0px;
+	width: 55px;
+	height: 55px;
+}
+.adressyun2{
+	position: absolute;
+	right: 0px;
+	width: 47px;
+	height: 30px;
+}
+.dzhititle{
+	position: relative;
+	padding: 18px 5px;
+	text-align: center;
+}
+.dzhititle .titlepc{
+	width: 170px;
+	height: 38px;
+}
+.addressbox{
+	padding: 0px 20px;
+	position: relative;
+}
+.dzleft{
+	display: inline-block;
+	width: 30%;
+}
+.dzinfo {
+	width: 100%;
+	padding: 10px 18px 6px;
+	box-sizing: border-box;
+	background: url(../../Images/wishlist/addressborder.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.dzinfo2 {
+	width: 100%;
+	padding: 12px 18px 12px;
+	box-sizing: border-box;
+	background: url(../../Images/wishlist/addressborder2.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.dzinfo2 .dzleft {
+	float: left;
+	width: 40%;
+	height: 100%;
+	display: inline-block;
+	color: #b56643;
+	font-size: 14px;
+	line-height: 27px;
+}
+
+.dzinfo .dzleft {
+	float: left;
+	width: 31%;
+	height: 100%;
+	display: inline-block;
+	color: #b56643;
+	font-size: 14px;
+	line-height: 27px;
+}
+
+.dzinfo input {
+	float: left;
+	width: 69%;
+	height: 27px;
+	border: none;
+	box-sizing: border-box;
+	padding-left: 10px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.dzinfo2 textarea {
+	display: inline-block;
+	float: right;
+	width: 100%;
+	height: 66px;
+	border: none;
+	padding: 10px;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.addressgirl {
+	position: absolute;
+	bottom: -31px;
+	right: 3px;
+	width: 55px;
+	height: 70px;
+}
+.dizhibtn{
+	padding: 11px 117px 0px;
+}
+.dizhibtn a{
+	display: block;
+}
+.dzhipc1{
+	width: 48px;
+	height: 72px;
+}
+.dzhipc2{
+	display: block;
+	margin-top: -30px;
+}
+
+
+/*弹框*/
+.z_tmbg{ width:100%; background:rgba(0,0,0,.7);position:absolute; z-index:99999999;font-size:14px;top:0;left:0;height:100%;}	
+.z_tank{ 
+	position:relative; 
+	margin:0px 20px; 
+	background: url(../../Images/wishlist/tkbg.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.z_tankif{ border-radius:5px; padding:25px 25px 54px;}
+.z_proimg{ text-align:center; line-height:0;}
+.z_proimg img{ width:56px; height:56px;}
+.z_tankif p{ color:#8c4b2f;font-size: 14px;text-align:center;font-weight: bold;margin-top:75px;line-height:1.5em;}
+ 
+.z_tkbtn{ margin-top:17px;}
+.z_tkbtn a{ width:44%; height:44px; line-height:44px; display:block; border-radius:5px;box-sizing:border-box;}
+.z_tkbtn a.z_cancelbtn{ 
+	float:left;
+	background: url(../../Images/wishlist/ikown.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.z_tkbtn a.z_qdbtn{ 
+	float:right;
+	background: url(../../Images/wishlist/goreceive.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+}
+.singlebtn{
+	margin: 0 auto;
+	background: url(../../Images/wishlist/gofollow.png) no-repeat;
+	background-size: 100% 100%;
+	background-position: center center;
+}
+
+@media only screen and (max-width: 320px) {
+	.topimgs{
+		padding: 0px 13px;
+	}
+	.tiptext{
+    	left: 7px;
+	}
+	.wishlistbox{
+		padding: 25% 17% 20% 20%;
+	}
+	.girl{
+    	right: 4.5%;
+	}
+}
+@media only screen and (min-width: 360px) {
+	.containe {
+    	padding-bottom: 0px;
+	}
+	.tiptext{
+    	left: 18px;
+	}
+	.box{
+		padding: 0px 15px 0px;
+	}
+	.createwishbtn {
+    	margin-top: 40px;
+	}
+}
+
+@media only screen and (min-width: 412px) {
+	.tiptext{
+    	left: 40px;
+	}
+}
+
+
